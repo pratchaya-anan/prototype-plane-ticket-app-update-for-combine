@@ -1,0 +1,7 @@
+{
+  "name": "plane-ticket-app-update-for",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
