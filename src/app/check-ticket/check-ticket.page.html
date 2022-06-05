@@ -1,0 +1,132 @@
+<ion-header class="ion-no-border" mode="ios">
+    <ion-toolbar class="new-background-color">
+        <ion-buttons slot="start">
+            <ion-back-button color="danger"></ion-back-button>
+        </ion-buttons>
+        <ion-title>check ticket</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content *ngFor="let ticket of tickets">
+    <ion-list lines="none">
+        <ion-list lines="none">
+            <ion-list-header lines="none" mode="md">
+                <ion-list>
+                    <ion-label>เที่ยวบินขาไป (วันอาทิตย์ 5 มิถุนายน 2022)</ion-label>
+                    <ion-label>
+                        <h2 style="font-size:11px"> {{ ticket.THgo }} > {{ ticket.THto }} </h2>
+                        <h2 style="font-size:11px">ผู้โดยสาร {{ ticket.amount }} คน | {{ ticket.flight }} </h2>
+                    </ion-label>
+                </ion-list>
+            </ion-list-header>
+            <ion-item class="ion-margin-bottom" color="tertiary">
+                <ion-avatar style="margin-bottom: 70px;" slot="start">
+                    <ion-img [src]="ticket.img"></ion-img>
+                    <ion-label>
+                        <b style="font-size:10px"> {{ ticket.airline }} </b>
+                        <h3 style="color:red; font-size:11px"> {{ ticket.airlineID }} </h3>
+                    </ion-label>
+                </ion-avatar>
+                <ion-label style="font-size:12px">
+                    <b> {{ ticket.go }} </b>
+                    <h2> | </h2>
+                    <h3> to </h3>
+                    <h2> | </h2>
+                    <b> {{ ticket.to }} </b>
+                </ion-label>
+                <ion-label style="font-size:10px">
+                    <ion-text color="medium">
+                        <h2> {{ ticket.gtime }} </h2>
+                        <h2> | </h2>
+                        <b>
+                          <ion-icon name="time-outline"></ion-icon> {{ ticket.time }}
+                      </b>
+                        <h2> | </h2>
+                        <h2> {{ ticket.ttime }} </h2>
+                    </ion-text>
+                </ion-label>
+                <ion-label>
+                    <ion-text color="medium">
+                        <h2 style="font-size:9.5px"> น้ำหนักสัมภาระ </h2>
+                        <h2 style="font-size:9.5px"> ภายในห้องโดยสาร </h2>
+                        <h2 style="color: green;"> {{ ticket.weight }} kg </h2>
+                    </ion-text>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+
+        <ion-list lines="none">
+            <ion-grid class="ion-padding">
+                <ion-label>
+                    <h2 class="line-height2">
+                        รายละเอียดราคา
+                    </h2>
+                    <ion-input style="font-size:11px" placeholder="โค้ดส่วนลด: " type="text"></ion-input>
+                </ion-label>
+                <ion-row>
+                    <ion-col class="ion-no-padding">
+                        <p> {{ ticket.go }} > {{ ticket.to }} </p>
+                        <p> ได้รับส่วนลด </p>
+                    </ion-col>
+                    <ion-col class="ion-no-padding">
+                        <p> ฿{{ ticket.price }} </p>
+                        <p> ฿5 </p>
+                    </ion-col>
+                    <ion-col class="ion-no-padding">
+                        <p> X1 </p>
+                    </ion-col>
+                </ion-row>
+                <ion-text style="text-align: center">
+                    <h4 style="color: red;"> รวมทั้งหมด 453 บาท </h4>
+                </ion-text>
+            </ion-grid>
+        </ion-list>
+
+        <ion-list>
+            <ion-label>
+                <h4 class="line-height2">
+                    <b> ข้อมูลผู้เดินทาง (traveler information) </b>
+                    <p style="color:red; font-size:11px">
+                        ข้อมูลที่คุณกรอกนี้จะไม่ถูกเก็บ ใช้เพียงยืนยันการจองตั๋วเครื่องบินของคุณ
+                    </p>
+                    <p style="color:red; font-size:11px">
+                        (The information you enter will not be collected. Use only to confirm your flight booking confirmation.)
+                    </p>
+                    <b> ข้อมูลผู้เดินทาง (ผู้ใหญ่) </b>
+                </h4>
+            </ion-label>
+
+            <ion-item style="font-size:11px;" lines="full" mode="ios" color="tertiary">
+                <ion-label>ใช้ข้อมูล KYC</ion-label>
+                <ion-toggle value="true" class="toggle-checked" color="danger"></ion-toggle>
+            </ion-item>
+            <ion-item lines="full" color="tertiary">
+                <ion-select style="font-size:11px;" class="ion-no-padding ion-padding-end ion-select-full" okText="ตกลง" cancelText="ยกเลิก" interface="action-sheet" placeholder="คำนำหน้า">
+                    <ion-select-option value="male">นาย (Mr.)</ion-select-option>
+                    <ion-select-option value="female1">นางสาว (Ms.)</ion-select-option>
+                    <ion-select-option value="female2">นาง (Mrs.)</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item lines="full" color="tertiary">
+                <ion-input style="font-size:11px" placeholder="ชื่อผู้เดินทาง: " type="text"></ion-input>
+                <ion-input style="font-size:11px" placeholder="นามสกุล: " type="text"></ion-input>
+            </ion-item>
+            <ion-item lines="full" color="tertiary">
+                <ion-input style="font-size:11px" placeholder="name: " type="text"></ion-input>
+                <ion-input style="font-size:11px" placeholder="surname: " type="text"></ion-input>
+            </ion-item>
+            <ion-item lines="full" color="tertiary">
+                <p style="font-size:11px;"> วันเกิด: </p>
+                <input type="date" />
+            </ion-item>
+            <ion-item lines="full " color="tertiary ">
+                <ion-input style="font-size:11px " placeholder="เบอร์ติดต่อ (tel): " type="tel "></ion-input>
+            </ion-item>
+        </ion-list>
+    </ion-list>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+    <ion-button color="danger" expand="full" routerLink="/home" routerLink="/checkout-ticket">ดำเนินการต่อ
+    </ion-button>
+</ion-footer>

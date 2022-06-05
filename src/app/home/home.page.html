@@ -1,20 +1,154 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header>
+    <ion-toolbar>
+        <ion-title>PLANE TICKET</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-segment (ionChange)="segmentChanged($event)" value="list">
+        <ion-segment-button value="one">
+            <ion-label>
+                เที่ยวเดียว
+            </ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="two">
+            <ion-label>
+                ไปกลับ
+            </ion-label>
+        </ion-segment-button>
+    </ion-segment>
+
+    <div class="animate__animated animate__slideInUp animate__fast" *ngIf="segment === 'one'">
+        <ion-list class="animate__animated animate__slideInUp animate__fast">
+            <ion-item lines="full" color="tertiary">
+                <ion-select class="ion-no-padding ion-padding-end ion-select-full" okText="ตกลง" cancelText="ยกเลิก" interface="action-sheet" placeholder="เดินทางจาก">
+                    <ion-select-option value="BKK">ท่าอากาศยานสุวรรณภูมิ</ion-select-option>
+                    <ion-select-option value="DMK">ท่าอากาศยานดอนเมือง</ion-select-option>
+                    <ion-select-option value="Chiangrai">ท่าอากาศยานแม่ฟ้าหลวง</ion-select-option>
+                    <ion-select-option value="HGN">ท่าอากาศยานแม่ฮ่องสอน</ion-select-option>
+                    <ion-select-option value="CNX">ท่าอากาศยานเชียงใหม่</ion-select-option>
+                    <ion-select-option value="NNT">ท่าอากาศยานน่านนคร</ion-select-option>
+                    <ion-select-option value="PRH">ท่าอากาศยานแพร่</ion-select-option>
+                    <ion-select-option value="LPT">ท่าอากาศยานลำปาง</ion-select-option>
+                    <ion-select-option value="MAQ">ท่าอากาศยานแม่สอด</ion-select-option>
+                    <ion-select-option value="THS">ท่าอากาศยานสุโขทัย</ion-select-option>
+                    <ion-select-option value="PHS">ท่าอากาศยานพิษณุโลก</ion-select-option>
+                    <ion-select-option value="UTH">ท่าอากาศยานนานาชาติอุดรธานี</ion-select-option>
+                    <ion-select-option value="KOP">ท่าอากาศยานนครพนม</ion-select-option>
+                    <ion-select-option value="KKC">ท่าอากาศยานขอนแก่น</ion-select-option>
+                    <ion-select-option value="ROI">ท่าอากาศยานร้อยเอ็ด</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item lines="full" color="tertiary">
+                <ion-select class="ion-no-padding ion-padding-end ion-select-full" okText="ตกลง" cancelText="ยกเลิก" interface="action-sheet" placeholder="จุดหมาย">
+                    <ion-select-option value="tBKK">ท่าอากาศยานสุวรรณภูมิ</ion-select-option>
+                    <ion-select-option value="tDMK">ท่าอากาศยานดอนเมือง</ion-select-option>
+                    <ion-select-option value="tChiangrai">ท่าอากาศยานแม่ฟ้าหลวง</ion-select-option>
+                    <ion-select-option value="tHGN">ท่าอากาศยานแม่ฮ่องสอน</ion-select-option>
+                    <ion-select-option value="tCNX">ท่าอากาศยานเชียงใหม่</ion-select-option>
+                    <ion-select-option value="tNNT">ท่าอากาศยานน่านนคร</ion-select-option>
+                    <ion-select-option value="tPRH">ท่าอากาศยานแพร่</ion-select-option>
+                    <ion-select-option value="tLPT">ท่าอากาศยานลำปาง</ion-select-option>
+                    <ion-select-option value="tMAQ">ท่าอากาศยานแม่สอด</ion-select-option>
+                    <ion-select-option value="tTHS">ท่าอากาศยานสุโขทัย</ion-select-option>
+                    <ion-select-option value="tPHS">ท่าอากาศยานพิษณุโลก</ion-select-option>
+                    <ion-select-option value="tUTH">ท่าอากาศยานนานาชาติอุดรธานี</ion-select-option>
+                    <ion-select-option value="tKOP">ท่าอากาศยานนครพนม</ion-select-option>
+                    <ion-select-option value="tKKC">ท่าอากาศยานขอนแก่น</ion-select-option>
+                    <ion-select-option value="tROI">ท่าอากาศยานร้อยเอ็ด</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item lines="full" mode="ios">
+                <ion-checkbox color="danger"></ion-checkbox>
+                <ion-input type="text" placeholder="ผู้ใหญ่ (12ปีขึ้นไป)"></ion-input>
+            </ion-item>
+            <ion-item lines="full" mode="ios">
+                <ion-checkbox color="danger"></ion-checkbox>
+                <ion-input type="text" placeholder="เด็ก (2-11ปี)"></ion-input>
+            </ion-item>
+            <ion-item lines="full" mode="ios">
+                <ion-checkbox color="danger"></ion-checkbox>
+                <ion-input type="text" placeholder="ทารก (น้อยกว่า2ปี)"></ion-input>
+            </ion-item>
+            <ion-item lines="full" mode="ios">
+                <ion-input type="text" placeholder="วันที่ออกเดินทาง" readonly="true"></ion-input>
+                <input type="date" />
+            </ion-item>
+        </ion-list>
+        <ion-button color="danger" expand="full" routerLink="/home" routerLink="/list-ticket">ค้นหา
+            <ion-icon class="ion-no-margin" name='search-sharp'></ion-icon>
+        </ion-button>
+    </div>
+
+    <div class="animate__animated animate__slideInUp animate__fast" *ngIf="segment === 'two'">
+        <ion-list class="animate__animated animate__slideInUp animate__fast">
+            <ion-item lines="full" color="tertiary">
+                <ion-select class="ion-no-padding ion-padding-end ion-select-full" okText="ตกลง" cancelText="ยกเลิก" interface="action-sheet" placeholder="เดินทางจาก">
+                    <ion-select-option value="BKK">ท่าอากาศยานสุวรรณภูมิ</ion-select-option>
+                    <ion-select-option value="DMK">ท่าอากาศยานดอนเมือง</ion-select-option>
+                    <ion-select-option value="Chiangrai">ท่าอากาศยานแม่ฟ้าหลวง</ion-select-option>
+                    <ion-select-option value="HGN">ท่าอากาศยานแม่ฮ่องสอน</ion-select-option>
+                    <ion-select-option value="CNX">ท่าอากาศยานเชียงใหม่</ion-select-option>
+                    <ion-select-option value="NNT">ท่าอากาศยานน่านนคร</ion-select-option>
+                    <ion-select-option value="PRH">ท่าอากาศยานแพร่</ion-select-option>
+                    <ion-select-option value="LPT">ท่าอากาศยานลำปาง</ion-select-option>
+                    <ion-select-option value="MAQ">ท่าอากาศยานแม่สอด</ion-select-option>
+                    <ion-select-option value="THS">ท่าอากาศยานสุโขทัย</ion-select-option>
+                    <ion-select-option value="PHS">ท่าอากาศยานพิษณุโลก</ion-select-option>
+                    <ion-select-option value="UTH">ท่าอากาศยานนานาชาติอุดรธานี</ion-select-option>
+                    <ion-select-option value="KOP">ท่าอากาศยานนครพนม</ion-select-option>
+                    <ion-select-option value="KKC">ท่าอากาศยานขอนแก่น</ion-select-option>
+                    <ion-select-option value="ROI">ท่าอากาศยานร้อยเอ็ด</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item lines="full" color="tertiary">
+                <ion-select class="ion-no-padding ion-padding-end ion-select-full" okText="ตกลง" cancelText="ยกเลิก" interface="action-sheet" placeholder="จุดหมาย">
+                    <ion-select-option value="tBKK">ท่าอากาศยานสุวรรณภูมิ</ion-select-option>
+                    <ion-select-option value="tDMK">ท่าอากาศยานดอนเมือง</ion-select-option>
+                    <ion-select-option value="tChiangrai">ท่าอากาศยานแม่ฟ้าหลวง</ion-select-option>
+                    <ion-select-option value="tHGN">ท่าอากาศยานแม่ฮ่องสอน</ion-select-option>
+                    <ion-select-option value="tCNX">ท่าอากาศยานเชียงใหม่</ion-select-option>
+                    <ion-select-option value="tNNT">ท่าอากาศยานน่านนคร</ion-select-option>
+                    <ion-select-option value="tPRH">ท่าอากาศยานแพร่</ion-select-option>
+                    <ion-select-option value="tLPT">ท่าอากาศยานลำปาง</ion-select-option>
+                    <ion-select-option value="tMAQ">ท่าอากาศยานแม่สอด</ion-select-option>
+                    <ion-select-option value="tTHS">ท่าอากาศยานสุโขทัย</ion-select-option>
+                    <ion-select-option value="tPHS">ท่าอากาศยานพิษณุโลก</ion-select-option>
+                    <ion-select-option value="tUTH">ท่าอากาศยานนานาชาติอุดรธานี</ion-select-option>
+                    <ion-select-option value="tKOP">ท่าอากาศยานนครพนม</ion-select-option>
+                    <ion-select-option value="tKKC">ท่าอากาศยานขอนแก่น</ion-select-option>
+                    <ion-select-option value="tROI">ท่าอากาศยานร้อยเอ็ด</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item lines="full" mode="ios">
+                <ion-checkbox color="danger"></ion-checkbox>
+                <ion-input type="text" placeholder="ผู้ใหญ่ (12ปีขึ้นไป)"></ion-input>
+            </ion-item>
+            <ion-item lines="full" mode="ios">
+                <ion-checkbox color="danger"></ion-checkbox>
+                <ion-input type="text" placeholder="เด็ก (2-11ปี)"></ion-input>
+            </ion-item>
+            <ion-item lines="full" mode="ios">
+                <ion-checkbox color="danger"></ion-checkbox>
+                <ion-input type="text" placeholder="ทารก (น้อยกว่า2ปี)"></ion-input>
+            </ion-item>
+            <ion-item lines="full" mode="ios">
+                <ion-input type="text" placeholder="วันที่ออกเดินทาง" readonly="true"></ion-input>
+                <input type="date" />
+            </ion-item>
+
+            <ion-item lines="full" mode="ios">
+                <ion-input type="text" placeholder="วันที่เดินทางกลับ" readonly="true"></ion-input>
+                <input type="date" />
+            </ion-item>
+        </ion-list>
+        <ion-button color="danger" expand="full" routerLink="/home" routerLink="/go-list-ticket">ค้นหา
+            <ion-icon class="ion-no-margin" name='search-sharp'></ion-icon>
+        </ion-button>
+    </div>
 </ion-content>
